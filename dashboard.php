@@ -68,10 +68,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['action'])) {
     </style>
 </head>
 <body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-    <header class="flex justify-between items-center p-6 w-full fixed top-0 left-0 px-10 bg-white shadow-md">
-        <h1 class="text-gray-800 text-3xl font-extrabold">Task Manager</h1>
-        <a href="logout.php" class="bg-red-600 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:bg-red-700 transition duration-300">Logout</a>
-    </header>
+<header class="flex justify-between items-center p-6 w-full fixed top-0 left-0 px-10 bg-white shadow-md z-50">
+    <h1 class="text-gray-800 text-3xl font-extrabold">Task Manager</h1>
+    <div class="flex items-center gap-4">
+        <!-- Profile Icon -->
+        <a href="profile.php?user_id=<?= $_SESSION['user_id'] ?>" 
+           class="text-blue-600 text-3xl hover:text-blue-800 transition" 
+           title="Profile">
+            <i class="ph ph-user-circle"></i>
+        </a>
+
+        <!-- Logout Icon -->
+        <a href="logout.php" 
+           class="text-red-600 text-2xl hover:text-red-800 transition duration-300" 
+           title="Logout">
+            <i class="ph ph-sign-out"></i>
+        </a>
+    </div>
+</header>
+
+
 
     <main class="w-full max-w-4xl mt-20 p-6 bg-white shadow-lg rounded-lg">
         <h2 class="text-2xl font-bold text-gray-900 mb-4">Your Tasks</h2>
